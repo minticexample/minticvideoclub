@@ -1,5 +1,7 @@
 package com.mintic.videoclub.swings;
 
+import java.awt.event.WindowEvent;
+
 
 public class EditarPelicula extends javax.swing.JDialog {
 
@@ -140,6 +142,11 @@ public class EditarPelicula extends javax.swing.JDialog {
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-close-window-24.png"))); // NOI18N
         jMenuItem1.setText("Salir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -165,6 +172,10 @@ public class EditarPelicula extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

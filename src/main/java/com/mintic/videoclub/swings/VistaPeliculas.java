@@ -5,9 +5,6 @@ import java.awt.event.WindowEvent;
 
 public class VistaPeliculas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VistaPeliculas
-     */
     public VistaPeliculas() {
         initComponents();
     }
@@ -24,7 +21,6 @@ public class VistaPeliculas extends javax.swing.JFrame {
         jPMOpcionesPelicula = new javax.swing.JPopupMenu();
         jMIEditarPelicula = new javax.swing.JMenuItem();
         jMIAlquilarPelicula = new javax.swing.JMenuItem();
-        jMIDevolverPelicula = new javax.swing.JMenuItem();
         jFrame1 = new javax.swing.JFrame();
         jSPTabla = new javax.swing.JScrollPane();
         jTInfoPeliculas = new javax.swing.JTable();
@@ -44,11 +40,13 @@ public class VistaPeliculas extends javax.swing.JFrame {
         });
         jPMOpcionesPelicula.add(jMIEditarPelicula);
 
-        jMIAlquilarPelicula.setText("Alquilar pelicula");
+        jMIAlquilarPelicula.setText("Transacciones");
+        jMIAlquilarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIAlquilarPeliculaActionPerformed(evt);
+            }
+        });
         jPMOpcionesPelicula.add(jMIAlquilarPelicula);
-
-        jMIDevolverPelicula.setText("Devolver pelicula");
-        jPMOpcionesPelicula.add(jMIDevolverPelicula);
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -182,6 +180,23 @@ public class VistaPeliculas extends javax.swing.JFrame {
         editarPelicula.setVisible(true);
     }//GEN-LAST:event_jMIEditarPeliculaActionPerformed
 
+    private void jMIAlquilarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAlquilarPeliculaActionPerformed
+        String estadoPelicula = "disponible";
+        TransaccionesPelicula transaccionesPelicula = new TransaccionesPelicula(this, true);
+        transaccionesPelicula.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e){
+                // ejecutaré actualizar las peliculas
+            }
+        });
+        if (estadoPelicula.equals("disponible")) {
+            transaccionesPelicula.setOperacion("alquiler");
+        } else {
+            transaccionesPelicula.setOperacion("devolucion");
+        }
+        transaccionesPelicula.setVisible(true);
+    }//GEN-LAST:event_jMIAlquilarPeliculaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,7 +238,6 @@ public class VistaPeliculas extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMBBarraPrincipial;
     private javax.swing.JMenuItem jMIAgregarPelicula;
     private javax.swing.JMenuItem jMIAlquilarPelicula;
-    private javax.swing.JMenuItem jMIDevolverPelicula;
     private javax.swing.JMenuItem jMIEditarPelicula;
     private javax.swing.JMenuItem jMISalir;
     private javax.swing.JMenu jMOperaciones;

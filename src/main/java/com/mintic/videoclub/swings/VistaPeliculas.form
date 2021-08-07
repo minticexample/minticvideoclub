@@ -23,13 +23,11 @@
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jMIAlquilarPelicula">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Alquilar pelicula"/>
+            <Property name="text" type="java.lang.String" value="Transacciones"/>
           </Properties>
-        </MenuItem>
-        <MenuItem class="javax.swing.JMenuItem" name="jMIDevolverPelicula">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Devolver pelicula"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIAlquilarPeliculaActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
